@@ -132,10 +132,24 @@ public Image astroidPic;
         astro2.move();
         astroid1.move();
         astroid2.move();
+        crashng();
 	}
-	
+
+    public void crashng() {
+
+        //if the astros crash into
+        if (astro.hitbox.intersects(astro2.hitbox)) {
+            System.out.println("CRASH!!!");
+            astro.dx = -astro.dx;
+            astro2.dx = -astro2.dx;
+            astro.dy = -astro.dx;
+            astro2.dy = -astro2.dy;
+            astro2.isAlive = false;
+        }
+    }
+
    //Pauses or sleeps the computer for the amount specified in milliseconds
-   public void pause(int time ){
+   public void pause(int time){
    		//sleep
 			try {
 				Thread.sleep(time);
@@ -181,10 +195,14 @@ public Image astroidPic;
 		g.clearRect(0, 0, WIDTH, HEIGHT);
 
       //draw the image of the astronaut
+        if (astro2.isAlive == true){
+            g.drawImage(astroPic, astro2.xpos, astro2.ypos, astro2.width, astro2.height, null);
+        }
 		g.drawImage(astroPic, astro.xpos, astro.ypos, astro.width, astro.height, null);
-        g.drawImage(astroPic, astro2.xpos, astro2.ypos, astro2.width, astro2.height, null);
+
         g.drawImage(astroidPic, astroid1.xpos, astroid1.ypos, 100, 100, null);
         g.drawImage(astroidPic, astroid2.xpos, astroid2.ypos, 100, 100, null);
+        g.drawRect(astro.hitbox.x, astro.hitbox.y,astro.hitbox.width, astro.hitbox.height);
 
         g.dispose();
 
