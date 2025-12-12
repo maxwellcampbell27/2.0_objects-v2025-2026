@@ -47,7 +47,7 @@ public Image astroidPic;
 
    public Astronaut astro2;
    public Astroid astroid1;
-
+    public Astroid astroid2;
    // Main method definition
    // This is the code that runs first and automatically
 	public static void main(String[] args) {
@@ -100,6 +100,9 @@ public Image astroidPic;
         astro2.width = 50;
 
         astroid1 = new Astroid(randx,randy);
+        astroid2 = new Astroid(randx,randy);
+        astroid2.dx = 5;
+        astroid2.height = 15;
 	}// BasicGameApp()
 
    
@@ -128,6 +131,7 @@ public Image astroidPic;
 		astro.move();
         astro2.move();
         astroid1.move();
+        astroid2.move();
 	}
 	
    //Pauses or sleeps the computer for the amount specified in milliseconds
@@ -180,7 +184,7 @@ public Image astroidPic;
 		g.drawImage(astroPic, astro.xpos, astro.ypos, astro.width, astro.height, null);
         g.drawImage(astroPic, astro2.xpos, astro2.ypos, astro2.width, astro2.height, null);
         g.drawImage(astroidPic, astroid1.xpos, astroid1.ypos, 100, 100, null);
-
+        g.drawImage(astroidPic, astroid2.xpos, astroid2.ypos, 100, 100, null);
 
         g.dispose();
 
