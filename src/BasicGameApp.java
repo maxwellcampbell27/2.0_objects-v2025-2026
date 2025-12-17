@@ -146,6 +146,9 @@ public Image astroidPic;
             astro2.dy = -astro2.dy;
             astro2.isAlive = false;
         }
+        if(astroid1.hitbox.intersects(astroid2.hitbox)){
+            System.out.println("astroid collision");
+        }
     }
 
    //Pauses or sleeps the computer for the amount specified in milliseconds

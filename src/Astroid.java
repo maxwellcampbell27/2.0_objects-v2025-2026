@@ -1,3 +1,5 @@
+import java.awt.*;
+
 public class Astroid {
     //VARIABLE DECLARATION SECTION
     //Here's where you state which variables you are going to use.
@@ -9,7 +11,7 @@ public class Astroid {
     public int width;
     public int height;
     public boolean isAlive;            //a boolean to denote if the hero is alive or dead.
-
+    public Rectangle hitbox;
 
     // METHOD DEFINITION SECTION
 
@@ -27,7 +29,7 @@ public class Astroid {
         width = 60;
         height = 60;
         isAlive = true;
-
+        hitbox = new Rectangle(xpos,ypos,width,height);
 
     } // constructor
 
@@ -50,6 +52,7 @@ public class Astroid {
 //todo: make the astroid wrap when it hits the right and left walls
         xpos = xpos + dx;
         ypos = ypos + dy;
+        hitbox = new Rectangle(xpos,ypos,width,height);
     }
 }
 
